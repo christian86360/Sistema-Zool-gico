@@ -1,0 +1,37 @@
+create database zologico;
+
+
+
+
+CREATE TABLE Especie(
+	nombrecientifico varchar(30) primary key NOT NULL,
+	nomvulgar varchar(30) NULL,
+	familia varchar(30) NULL,
+	peligro varchar(30) NULL
+);
+
+insert into Especie values('leones','leon','felino','Falso');
+
+
+CREATE TABLE Zoo(
+	nombre varchar(30) primary key NOT NULL,
+	ciudad varchar(30) NULL,
+	pais varchar(30) NULL,
+	tamaño varchar(30) NULL,
+	presupuesto varchar(30) NULL
+);
+insert into Zoo values('zooMexico','Mexico','Mexico','200KM','20000');
+
+CREATE TABLE Animal(
+	numid int primary key AUTO_INCREMENT,
+	nombrezoo varchar(30) NULL,
+	nombreespecie varchar(30) NULL,
+	sexo varchar(30) NULL,
+	pais varchar(30) NULL,
+	continente varchar(30) NULL,
+FOREIGN KEY (nombreespecie) REFERENCES Especie(nombrecientifico),
+ FOREIGN KEY (nombrezoo) REFERENCES Zoo(nombre )
+
+);
+insert into Animal values(1,'zooMexico','leones','Macho','Nigeria','Africa');
+
